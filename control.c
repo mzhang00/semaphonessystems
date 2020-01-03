@@ -51,6 +51,10 @@ int main(int argc, char * argv[]) {
         }else if(strcmp(argv[1], "-r") == 0){
             printf("trying to get in\n");
             
+            struct sembuf sb;
+            sb.sem_num = 0;
+            sb.sem_op = -1;
+
             file = open("story.txt", O_RDONLY);
             char line [SEG_SIZE];
             printf("The story so far:\n");
